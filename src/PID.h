@@ -45,6 +45,11 @@ class PID {
   double Kp;
   double Ki;
   double Kd;
+  /**
+   * history of cross-track error
+   */
+  double cte_old;
+  bool is_cte_init;
 };
 
 #endif  // PID_H
