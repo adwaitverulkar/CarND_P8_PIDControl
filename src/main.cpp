@@ -37,7 +37,7 @@ int main() {
   /**
    * TODO: Initialize the pid variable.
    */
-  pid.Init(5, 0.01, 0.2);
+  pid.Init(3.0, 0.05, 5.0);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, 
                      uWS::OpCode opCode) {
@@ -73,10 +73,10 @@ int main() {
 
           json msgJson;
 
-          if(speed < 5)
-            throttle_value = 0.3;
+          if(speed < 10.0)
+            throttle_value = 1.0;
           else
-            throttle_value = 0.5 - abs(steer_value);
+            throttle_value = 0.75 - abs(steer_value);
           
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = throttle_value;
