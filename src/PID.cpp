@@ -30,7 +30,8 @@ void PID::UpdateError(double cte) {
    */
   p_error = cte;
   i_error += cte;
-  if(is_cte_init) d_error = cte - cte_old;
+  if(is_cte_init) 
+    d_error = cte - cte_old;
   cte_old = cte;
   is_cte_init = true;
 
